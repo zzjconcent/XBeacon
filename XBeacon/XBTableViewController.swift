@@ -16,6 +16,7 @@ class XBTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "openWebSite", name: "openWebSite", object: nil)
     }
 
     func setupTableView() {
@@ -28,6 +29,10 @@ class XBTableViewController: UITableViewController {
         sectionArrayDataSource = ArrayDataSource(items: items, cellIdentifier: "SectionCell", configColsure: configCell)
         tableView.dataSource = sectionArrayDataSource
         
+    }
+    
+    func openWebSite() {
+        performSegueWithIdentifier("OpenWebsite", sender: nil)
     }
     // MARK: - TableViewDelegate
     

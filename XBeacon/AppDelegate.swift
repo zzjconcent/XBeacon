@@ -16,7 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let noteSetting = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        let displayInfo = UIMutableUserNotificationAction()
+        displayInfo.identifier = "displayInfo"
+        displayInfo.title = "显示"
+        displayInfo.activationMode = UIUserNotificationActivationMode.Foreground
+        displayInfo.destructive = false
+        displayInfo.authenticationRequired = true
+
+        let displayCategory = UIMutableUserNotificationCategory()
+        displayCategory.identifier = "displayCategory"
+        displayCategory.setActions([displayInfo], forContext: .Minimal)
+        displayCategory.setActions([displayInfo], forContext: .Default)
+        
+        let catagory = Set([displayCategory])
+
+        let noteSetting = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: catagory)
         UIApplication.sharedApplication().registerUserNotificationSettings(noteSetting)
         
         if UserDefaults.boolForKey("AntiLostState") {
@@ -32,6 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        if identifier == "displayInfo" {
+            NSNotificationCenter.defaultCenter().postNotificationName("openWebSite", object: nil)
+        }
+        completionHandler()
     }
     
     func applicationWillResignActive(application: UIApplication) {

@@ -89,6 +89,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
         localNotification.alertBody = detailStr
         localNotification.alertAction = "View Details"
         localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.category = "displayCategory"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     

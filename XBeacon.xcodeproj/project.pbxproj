@@ -13,6 +13,7 @@
 		1E4B154B1B5D46E5009226D7 /* AntiLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */; };
 		1E4B154D1B5D46F2009226D7 /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154C1B5D46F2009226D7 /* RegionViewController.swift */; };
 		1E4B154F1B5D492C009226D7 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154E1B5D492C009226D7 /* Utility.swift */; };
+		1E6EF35A1B5E8FAD0026FD19 /* XBWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EF3591B5E8FAD0026FD19 /* XBWebViewController.swift */; };
 		1E77573E1B5B9AB2004EF4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77573D1B5B9AB2004EF4D9 /* AppDelegate.swift */; };
 		1E7757401B5B9AB2004EF4D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77573F1B5B9AB2004EF4D9 /* ViewController.swift */; };
 		1E7757431B5B9AB2004EF4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7757411B5B9AB2004EF4D9 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntiLostViewController.swift; sourceTree = "<group>"; };
 		1E4B154C1B5D46F2009226D7 /* RegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		1E4B154E1B5D492C009226D7 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		1E6EF3591B5E8FAD0026FD19 /* XBWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBWebViewController.swift; sourceTree = "<group>"; };
 		1E77573A1B5B9AB2004EF4D9 /* XBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E77573D1B5B9AB2004EF4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E77573F1B5B9AB2004EF4D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				1E77573D1B5B9AB2004EF4D9 /* AppDelegate.swift */,
 				1E77573F1B5B9AB2004EF4D9 /* ViewController.swift */,
 				1E7757411B5B9AB2004EF4D9 /* Main.storyboard */,
+				1E6EF3591B5E8FAD0026FD19 /* XBWebViewController.swift */,
 				1E4B15451B5D25DF009226D7 /* XBTableViewController.swift */,
 				1E0637731B5CBB7C009E9063 /* XBeaconManager.swift */,
 				1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */,
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4B15481B5D2ACF009226D7 /* ArrayDataSource.swift in Sources */,
+				1E6EF35A1B5E8FAD0026FD19 /* XBWebViewController.swift in Sources */,
 				1E7757401B5B9AB2004EF4D9 /* ViewController.swift in Sources */,
 				1E4B154D1B5D46F2009226D7 /* RegionViewController.swift in Sources */,
 				1E0637741B5CBB7C009E9063 /* XBeaconManager.swift in Sources */,
