@@ -17,8 +17,9 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let beaconRegion = CLBeaconRegion(proximityUUID: kUUID!, major: major, minor: minor, identifier: kIdentifier)
     let peripheralManager = CBPeripheralManager()
-    
+    var rangingInfo:String!
     var inRegin = false
+    var rangeInfoLbl: UILabel?
     
     override init() {
         super.init()
@@ -65,6 +66,28 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
         sendLocalNotificationForBeaconReagion(region, detailStr: "DetermineState: \(stateStr)")
     }
     
+    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        for beacon in beacons {
+            if beacon.proximityUUID == kUUID! {
+                var proximity:String!
+                switch beacon.proximity {
+                case .Near:
+                    proximity = "Near"
+                case .Immediate:
+                    proximity = "Immediate"
+                case .Far:
+                    proximity = "Far"
+                case .Unknown:
+                    proximity = "Unknown"
+                }
+                rangingInfo = "proximity:\(proximity)\naccuracy:\(beacon.accuracy)\nrssi:\(beacon.rssi)"
+                if let lbl = rangeInfoLbl {
+                    lbl.text = rangingInfo
+                }
+            }
+        }
+    }
+    
     // MARK: - Event Method
     func setNotifyEntryStateOnDisplayOn() {
         beaconRegion.notifyEntryStateOnDisplay = true
@@ -80,6 +103,14 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
     
     func stopMonitor() {
         locationManager.stopMonitoringForRegion(beaconRegion)
+    }
+    
+    func startRanging() {
+        locationManager.startRangingBeaconsInRegion(beaconRegion)
+    }
+    
+    func stopRanging() {
+        locationManager.stopRangingBeaconsInRegion(beaconRegion)
     }
     
     // MARK: - Private Method

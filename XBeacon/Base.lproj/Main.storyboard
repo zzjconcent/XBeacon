@@ -34,6 +34,7 @@
                         <segue destination="ftl-1F-avF" kind="show" identifier="AntiLost" id="q6v-S7-Sq3"/>
                         <segue destination="HOc-ty-Ss5" kind="show" identifier="Region" id="9Lj-yh-meA"/>
                         <segue destination="WyY-vh-dIt" kind="show" identifier="OpenWebsite" id="e6V-cm-m3b"/>
+                        <segue destination="yj2-Dm-ihc" kind="show" identifier="Ranging" id="Z76-Rx-u67"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B01-Wm-0Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,6 +194,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC1-rS-9sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="151" y="263"/>
+        </scene>
+        <!--Ranging View Controller-->
+        <scene sceneID="kAE-3y-5H5">
+            <objects>
+                <viewController id="yj2-Dm-ihc" customClass="RangingViewController" customModule="XBeacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p46-Yr-PJl"/>
+                        <viewControllerLayoutGuide type="bottom" id="sqq-2n-YrU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d1z-q4-s0i">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-fg-Y7d">
+                                <rect key="frame" x="276" y="284" width="51" height="31"/>
+                                <connections>
+                                    <action selector="rangingSwitch:" destination="yj2-Dm-ihc" eventType="valueChanged" id="ZV7-5L-J5H"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranging" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-ng-Row">
+                                <rect key="frame" x="268" y="323" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WI8-ng-Row" firstAttribute="top" secondItem="nN6-fg-Y7d" secondAttribute="bottom" constant="8" id="41Z-xs-sbS"/>
+                            <constraint firstItem="WI8-ng-Row" firstAttribute="centerX" secondItem="d1z-q4-s0i" secondAttribute="centerX" id="4UJ-VZ-RU6"/>
+                            <constraint firstItem="nN6-fg-Y7d" firstAttribute="centerX" secondItem="d1z-q4-s0i" secondAttribute="centerX" id="mGy-Rk-Wro"/>
+                            <constraint firstItem="nN6-fg-Y7d" firstAttribute="centerY" secondItem="d1z-q4-s0i" secondAttribute="centerY" id="mxy-y1-arn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rangeInfoLbl" destination="WI8-ng-Row" id="1pw-4X-BhD"/>
+                        <outlet property="rangingSwitch" destination="nN6-fg-Y7d" id="AvE-5i-ErL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tz-Pb-jk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711" y="1493"/>
         </scene>
     </scenes>
 </document>
