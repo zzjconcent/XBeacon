@@ -22,6 +22,7 @@
 		1E7757531B5B9AB2004EF4D9 /* XBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7757521B5B9AB2004EF4D9 /* XBeaconTests.swift */; };
 		1E77575E1B5B9AB3004EF4D9 /* XBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */; };
 		1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */; };
+		1EF48E5D1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF48E5C1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBeaconUITests.swift; sourceTree = "<group>"; };
 		1E77575F1B5B9AB3004EF4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangingViewController.swift; sourceTree = "<group>"; };
+		1EF48E5C1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRegionAdvertisingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */,
 				1E4B154C1B5D46F2009226D7 /* RegionViewController.swift */,
 				1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */,
+				1EF48E5C1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift */,
 				1E4B154E1B5D492C009226D7 /* Utility.swift */,
 				1E4B15471B5D2ACF009226D7 /* ArrayDataSource.swift */,
 				1E7757441B5B9AB2004EF4D9 /* Assets.xcassets */,
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF48E5D1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift in Sources */,
 				1E4B15481B5D2ACF009226D7 /* ArrayDataSource.swift in Sources */,
 				1E6EF35A1B5E8FAD0026FD19 /* XBWebViewController.swift in Sources */,
 				1E7757401B5B9AB2004EF4D9 /* ViewController.swift in Sources */,

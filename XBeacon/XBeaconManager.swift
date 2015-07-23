@@ -12,13 +12,14 @@ import CoreBluetooth
 
 private let xBeaconManager = XBeaconManager()
 
-class XBeaconManager: NSObject,CLLocationManagerDelegate {
+class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDelegate {
     
     let locationManager = CLLocationManager()
     let beaconRegion = CLBeaconRegion(proximityUUID: kUUID!, major: major, minor: minor, identifier: kIdentifier)
-    let peripheralManager = CBPeripheralManager()
+    var peripheralManager:CBPeripheralManager!
     var rangingInfo:String!
     var inRegin = false
+    var pmBeaconState = false
     var rangeInfoLbl: UILabel?
     
     override init() {
@@ -30,6 +31,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
         }
         
         locationManager.delegate = self
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
         setNotifyEntryStateOnDisplayOn()
         startMonitor()
     }
@@ -87,6 +89,26 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
             }
         }
     }
+    // MARK: - Beacon advertising delegate methods
+    func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?) {
+        if (error != nil) {
+            print("Couldn't turn on advertising: \(error)")
+            return
+        }
+        
+        if peripheralManager.isAdvertising {
+            print("Turned on advertising.")
+        }
+    }
+    
+    func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
+        if peripheralManager.state != .PoweredOn {
+            print("Peripheral manager is off.")
+            return;
+        }
+        
+        print("Peripheral manager is on.")
+    }
     
     // MARK: - Event Method
     func setNotifyEntryStateOnDisplayOn() {
@@ -111,6 +133,33 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate {
     
     func stopRanging() {
         locationManager.stopRangingBeaconsInRegion(beaconRegion)
+    }
+    
+    func startAdvertisingBeacon() {
+        if peripheralManager.state != .PoweredOn {
+            print("Peripheral manager is off.")
+            return;
+        }
+        
+        let mj:CLBeaconMajorValue = 1234
+        let mi:CLBeaconMajorValue = 5678
+
+        let region = CLBeaconRegion(proximityUUID: kUUID!, major: mj, minor: mi, identifier: kIdentifier)
+        let beaconPeripheralData = region.peripheralDataWithMeasuredPower(nil)
+        var swiftDict : Dictionary<String,AnyObject!> = Dictionary<String,AnyObject!>()
+        for key : AnyObject in beaconPeripheralData.allKeys {
+            let stringKey = key as! String
+            if let keyValue = beaconPeripheralData.valueForKey(stringKey){
+                swiftDict[stringKey] = keyValue
+            }
+        }
+        peripheralManager.startAdvertising(swiftDict)
+        pmBeaconState = true
+    }
+    
+    func stopAdvertisingBeacon() {
+        peripheralManager.stopAdvertising()
+        pmBeaconState = false
     }
     
     // MARK: - Private Method

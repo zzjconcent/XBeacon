@@ -25,7 +25,7 @@ class XBTableViewController: UITableViewController {
             $0.textLabel?.text = "\($1)"
         }
         
-        let items:[AnyObject] = ["AntiLost","Region","Ranging"]
+        let items:[AnyObject] = ["AntiLost","Region","Ranging"," BeaconRegionAD"]
         sectionArrayDataSource = ArrayDataSource(items: items, cellIdentifier: "SectionCell", configColsure: configCell)
         tableView.dataSource = sectionArrayDataSource
         
@@ -41,6 +41,7 @@ class XBTableViewController: UITableViewController {
         case 0:performSegueWithIdentifier("AntiLost", sender: nil)
         case 1:performSegueWithIdentifier("Region", sender: nil)
         case 2:performSegueWithIdentifier("Ranging", sender: nil)
+        case 3:performSegueWithIdentifier("BeaconAdvertesting", sender: nil)
         default:break
         }
     }

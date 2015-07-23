@@ -35,6 +35,7 @@
                         <segue destination="HOc-ty-Ss5" kind="show" identifier="Region" id="9Lj-yh-meA"/>
                         <segue destination="WyY-vh-dIt" kind="show" identifier="OpenWebsite" id="e6V-cm-m3b"/>
                         <segue destination="yj2-Dm-ihc" kind="show" identifier="Ranging" id="Z76-Rx-u67"/>
+                        <segue destination="zJk-lg-qEe" kind="show" identifier="BeaconAdvertesting" id="ARh-te-Ufh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B01-Wm-0Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,7 +99,7 @@
                                     <constraint firstAttribute="height" constant="19" id="THv-Dr-8Tp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -139,7 +140,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojl-sx-EkJ">
                                 <rect key="frame" x="273" y="323" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -195,6 +196,47 @@
             </objects>
             <point key="canvasLocation" x="151" y="263"/>
         </scene>
+        <!--Beacon Region Advertising View Controller-->
+        <scene sceneID="WXa-n8-Wg6">
+            <objects>
+                <viewController id="zJk-lg-qEe" customClass="BeaconRegionAdvertisingViewController" customModule="XBeacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GYc-Ur-Z1B"/>
+                        <viewControllerLayoutGuide type="bottom" id="cFu-12-oXp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W9X-KF-tki">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8h7-Ol-ERr">
+                                <rect key="frame" x="276" y="284" width="51" height="31"/>
+                                <connections>
+                                    <action selector="beaconAdvertisingSwitch:" destination="zJk-lg-qEe" eventType="valueChanged" id="gjH-lE-jKx"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" BeaconRegionAD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBk-A1-U5W">
+                                <rect key="frame" x="231" y="323" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jBk-A1-U5W" firstAttribute="top" secondItem="8h7-Ol-ERr" secondAttribute="bottom" constant="8" id="4oB-Cf-qlR"/>
+                            <constraint firstItem="8h7-Ol-ERr" firstAttribute="centerX" secondItem="W9X-KF-tki" secondAttribute="centerX" id="feW-R2-4TS"/>
+                            <constraint firstItem="8h7-Ol-ERr" firstAttribute="centerY" secondItem="W9X-KF-tki" secondAttribute="centerY" id="iEK-MI-Xjt"/>
+                            <constraint firstItem="jBk-A1-U5W" firstAttribute="centerX" secondItem="W9X-KF-tki" secondAttribute="centerX" id="vrK-rk-zcW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beaconRegionADSwitch" destination="8h7-Ol-ERr" id="UKO-Zb-h5f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHG-5l-jWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="1493"/>
+        </scene>
         <!--Ranging View Controller-->
         <scene sceneID="kAE-3y-5H5">
             <objects>
@@ -216,7 +258,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranging" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-ng-Row">
                                 <rect key="frame" x="268" y="323" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
