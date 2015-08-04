@@ -21,6 +21,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     var inRegin = false
     var pmBeaconState = false
     var rangeInfoLbl: UILabel?
+    var antiLostViewController:AntiLostViewController?
     
     override init() {
         super.init()
@@ -41,6 +42,12 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     }
     
     // MARK: - CLLocationManagerDelegate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if antiLostViewController != nil {
+            antiLostViewController!.centerMapOnLocation(locations.first!)
+        }
+    }
+    
     func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus) {
             if status == .AuthorizedWhenInUse || status == .AuthorizedAlways {

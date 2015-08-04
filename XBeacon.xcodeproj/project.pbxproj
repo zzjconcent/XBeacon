@@ -21,6 +21,7 @@
 		1E7757481B5B9AB2004EF4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7757461B5B9AB2004EF4D9 /* LaunchScreen.storyboard */; };
 		1E7757531B5B9AB2004EF4D9 /* XBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7757521B5B9AB2004EF4D9 /* XBeaconTests.swift */; };
 		1E77575E1B5B9AB3004EF4D9 /* XBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */; };
+		1ECFDB891B7102CD004F07BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECFDB881B7102CD004F07BC /* MapKit.framework */; };
 		1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */; };
 		1EF48E5D1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF48E5C1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		1E7757591B5B9AB3004EF4D9 /* XBeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XBeaconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBeaconUITests.swift; sourceTree = "<group>"; };
 		1E77575F1B5B9AB3004EF4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ECFDB881B7102CD004F07BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangingViewController.swift; sourceTree = "<group>"; };
 		1EF48E5C1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRegionAdvertisingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECFDB891B7102CD004F07BC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +98,7 @@
 		1E7757311B5B9AB2004EF4D9 = {
 			isa = PBXGroup;
 			children = (
+				1ECFDB881B7102CD004F07BC /* MapKit.framework */,
 				1E77573C1B5B9AB2004EF4D9 /* XBeacon */,
 				1E7757511B5B9AB2004EF4D9 /* XBeaconTests */,
 				1E77575C1B5B9AB3004EF4D9 /* XBeaconUITests */,

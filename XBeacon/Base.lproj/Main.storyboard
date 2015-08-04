@@ -88,13 +88,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02x-Xl-OUS">
-                                <rect key="frame" x="276" y="284" width="51" height="31"/>
+                                <rect key="frame" x="276" y="114" width="51" height="31"/>
                                 <connections>
                                     <action selector="antiLostSwitch:" destination="ftl-1F-avF" eventType="valueChanged" id="abp-mg-1Wv"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AntiLost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHA-QP-0Qq">
-                                <rect key="frame" x="268" y="328" width="64" height="19"/>
+                                <rect key="frame" x="269" y="158" width="64" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="THv-Dr-8Tp"/>
                                 </constraints>
@@ -102,17 +102,28 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0h-XQ-hKd">
+                                <rect key="frame" x="20" y="185" width="560" height="407"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ftl-1F-avF" id="7yi-p7-c0h"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oHA-QP-0Qq" firstAttribute="centerX" secondItem="CRb-3e-drg" secondAttribute="centerX" id="6F4-oY-uYq"/>
+                            <constraint firstItem="h0h-XQ-hKd" firstAttribute="leading" secondItem="CRb-3e-drg" secondAttribute="leadingMargin" id="A4c-h1-Foa"/>
+                            <constraint firstItem="7q3-Nm-zxQ" firstAttribute="top" secondItem="h0h-XQ-hKd" secondAttribute="bottom" constant="8" id="KTi-Tg-9ss"/>
                             <constraint firstItem="02x-Xl-OUS" firstAttribute="centerX" secondItem="CRb-3e-drg" secondAttribute="centerX" id="LpO-KW-bN7"/>
-                            <constraint firstItem="02x-Xl-OUS" firstAttribute="centerY" secondItem="CRb-3e-drg" secondAttribute="centerY" id="dAQ-XD-ZAB"/>
+                            <constraint firstItem="02x-Xl-OUS" firstAttribute="top" secondItem="Qf4-VC-WGC" secondAttribute="bottom" constant="50" id="eJC-cI-xUl"/>
+                            <constraint firstItem="h0h-XQ-hKd" firstAttribute="top" secondItem="oHA-QP-0Qq" secondAttribute="bottom" constant="8" id="fcg-P7-TfD"/>
                             <constraint firstItem="oHA-QP-0Qq" firstAttribute="top" secondItem="02x-Xl-OUS" secondAttribute="bottom" constant="13" id="kWq-SA-2uw"/>
+                            <constraint firstItem="h0h-XQ-hKd" firstAttribute="trailing" secondItem="CRb-3e-drg" secondAttribute="trailingMargin" id="sI7-Ob-8I4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="atlostSwitch" destination="02x-Xl-OUS" id="INb-4r-CmI"/>
+                        <outlet property="lostMapView" destination="h0h-XQ-hKd" id="TT1-oJ-Aj2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gM7-Jx-aJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
