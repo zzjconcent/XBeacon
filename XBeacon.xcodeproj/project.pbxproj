@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E0637741B5CBB7C009E9063 /* XBeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0637731B5CBB7C009E9063 /* XBeaconManager.swift */; };
+		1E36B7931B78EFB90019AB7D /* AntiLostMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36B7921B78EFB90019AB7D /* AntiLostMapViewController.swift */; };
 		1E4B15461B5D25DF009226D7 /* XBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B15451B5D25DF009226D7 /* XBTableViewController.swift */; };
 		1E4B15481B5D2ACF009226D7 /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B15471B5D2ACF009226D7 /* ArrayDataSource.swift */; };
 		1E4B154B1B5D46E5009226D7 /* AntiLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1E0637731B5CBB7C009E9063 /* XBeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBeaconManager.swift; sourceTree = "<group>"; };
+		1E36B7921B78EFB90019AB7D /* AntiLostMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntiLostMapViewController.swift; sourceTree = "<group>"; };
 		1E4B15451B5D25DF009226D7 /* XBTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBTableViewController.swift; sourceTree = "<group>"; };
 		1E4B15471B5D2ACF009226D7 /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
 		1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntiLostViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				1E4B15451B5D25DF009226D7 /* XBTableViewController.swift */,
 				1E0637731B5CBB7C009E9063 /* XBeaconManager.swift */,
 				1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */,
+				1E36B7921B78EFB90019AB7D /* AntiLostMapViewController.swift */,
 				1E4B154C1B5D46F2009226D7 /* RegionViewController.swift */,
 				1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */,
 				1EF48E5C1B6136CB0090E860 /* BeaconRegionAdvertisingViewController.swift */,
@@ -300,6 +303,7 @@
 				1E0637741B5CBB7C009E9063 /* XBeaconManager.swift in Sources */,
 				1E4B154F1B5D492C009226D7 /* Utility.swift in Sources */,
 				1E77573E1B5B9AB2004EF4D9 /* AppDelegate.swift in Sources */,
+				1E36B7931B78EFB90019AB7D /* AntiLostMapViewController.swift in Sources */,
 				1E4B154B1B5D46E5009226D7 /* AntiLostViewController.swift in Sources */,
 				1E4B15461B5D25DF009226D7 /* XBTableViewController.swift in Sources */,
 			);

@@ -43,9 +43,8 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     
     // MARK: - CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if antiLostViewController != nil {
-            antiLostViewController!.centerMapOnLocation(locations.first!)
-        }
+        UserDefaults.setObject(locations.first, forKey: "LostLocation")
+        xBeaconManager.locationManager.stopUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager,
@@ -62,6 +61,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         sendLocalNotificationForBeaconReagion(region, detailStr: "Exit Region")
+        xBeaconManager.locationManager.startUpdatingLocation()
         inRegin = false
     }
     
