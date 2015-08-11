@@ -34,7 +34,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
         locationManager.delegate = self
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
         setNotifyEntryStateOnDisplayOn()
-        startMonitor()
+        startMonitor(beaconRegion)
     }
 
     class var sharedManager : XBeaconManager {
@@ -126,11 +126,11 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
         beaconRegion.notifyEntryStateOnDisplay = false
     }
     
-    func startMonitor() {
+    func startMonitor(beaconRegion:CLBeaconRegion) {
         locationManager.startMonitoringForRegion(beaconRegion)
     }
     
-    func stopMonitor() {
+    func stopMonitor(beaconRegion:CLBeaconRegion) {
         locationManager.stopMonitoringForRegion(beaconRegion)
     }
     

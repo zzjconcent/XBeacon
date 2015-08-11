@@ -32,6 +32,7 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate {
     
     @IBOutlet weak var atlostSwitch: UISwitch!
     @IBOutlet weak var lostMapView: MKMapView!
+    @IBOutlet weak var antiLostListTableView: UITableView!
     let regionRadius: CLLocationDistance = 1000
     
     var setRegionAnimateOnce = true

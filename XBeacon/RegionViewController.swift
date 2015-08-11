@@ -26,9 +26,9 @@ class RegionViewController: UIViewController {
     @IBAction func regionSwitch(sender: UISwitch) {
         UserDefaults.setBool(sender.on, forKey: "RegionState")
         if sender.on {
-            XBeaconManager.sharedManager.startMonitor()
+            XBeaconManager.sharedManager.startMonitor(XBeaconManager.sharedManager.beaconRegion)
         }else{
-            XBeaconManager.sharedManager.stopMonitor()
+            XBeaconManager.sharedManager.stopMonitor(XBeaconManager.sharedManager.beaconRegion)
         }
     }
     /*
