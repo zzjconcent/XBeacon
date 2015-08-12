@@ -15,13 +15,14 @@ private let xBeaconManager = XBeaconManager()
 class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDelegate {
     
     let locationManager = CLLocationManager()
-    let beaconRegion = CLBeaconRegion(proximityUUID: kUUID!, major: major, minor: minor, identifier: kIdentifier)
+    let beaconRegion = CLBeaconRegion(proximityUUID: kUUID!, identifier: kIdentifier)// CLBeaconRegion(proximityUUID: kUUID!, major: major, minor: minor, identifier: kIdentifier)
     var peripheralManager:CBPeripheralManager!
     var rangingInfo:String!
     var inRegin = false
     var pmBeaconState = false
     var rangeInfoLbl: UILabel?
     var antiLostViewController:AntiLostViewController?
+    var beacons:[CLBeacon]?
     
     override init() {
         super.init()
@@ -43,7 +44,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     
     // MARK: - CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        UserDefaults.setObject(locations.first, forKey: "LostLocation")
+//        UserDefaults.setObject(locations.first, forKey: "LostLocation")
         xBeaconManager.locationManager.stopUpdatingLocation()
     }
     
@@ -76,6 +77,8 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     }
     
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        xBeaconManager.beacons = beacons
+        NSNotificationCenter.defaultCenter().postNotificationName("UpdateSearchingBeaconResults", object: nil)
         for beacon in beacons {
             if beacon.proximityUUID == kUUID! {
                 var proximity:String!

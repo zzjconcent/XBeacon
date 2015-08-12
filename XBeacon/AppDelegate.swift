@@ -42,9 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if UserDefaults.boolForKey("RegionState") {
-            XBeaconManager.sharedManager.startMonitor()
+            //FIXME: MultiDevice
+//            XBeaconManager.sharedManager.startMonitor()
         }else{
-            XBeaconManager.sharedManager.stopMonitor()
+//            XBeaconManager.sharedManager.stopMonitor()
         }
 
         return true

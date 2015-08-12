@@ -38,5 +38,5 @@ class ArrayDataSource: NSObject,UITableViewDataSource {
         configureCellClosure(cell: cell, items: item)
         return cell
     }
-    
+
 }

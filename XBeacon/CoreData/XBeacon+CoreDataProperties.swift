@@ -16,6 +16,6 @@ import CoreLocation
 extension XBeacon {
 
     @NSManaged var name: String?
-    @NSManaged var clregion: CLBeaconRegion?
+    @NSManaged var clregion: CLBeacon?
 
 }

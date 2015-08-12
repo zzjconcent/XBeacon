@@ -15,6 +15,8 @@
 		1E4B154B1B5D46E5009226D7 /* AntiLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */; };
 		1E4B154D1B5D46F2009226D7 /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154C1B5D46F2009226D7 /* RegionViewController.swift */; };
 		1E4B154F1B5D492C009226D7 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B154E1B5D492C009226D7 /* Utility.swift */; };
+		1E52106C1B7B258E00CA7C10 /* SearchedBeaconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52106B1B7B258E00CA7C10 /* SearchedBeaconCell.swift */; };
+		1E57BD411B7B9565002ABE77 /* AntiLostBeaconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E57BD401B7B9565002ABE77 /* AntiLostBeaconCell.swift */; };
 		1E6EF35A1B5E8FAD0026FD19 /* XBWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EF3591B5E8FAD0026FD19 /* XBWebViewController.swift */; };
 		1E77573E1B5B9AB2004EF4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77573D1B5B9AB2004EF4D9 /* AppDelegate.swift */; };
 		1E7757401B5B9AB2004EF4D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77573F1B5B9AB2004EF4D9 /* ViewController.swift */; };
@@ -58,6 +60,8 @@
 		1E4B154A1B5D46E5009226D7 /* AntiLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntiLostViewController.swift; sourceTree = "<group>"; };
 		1E4B154C1B5D46F2009226D7 /* RegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		1E4B154E1B5D492C009226D7 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		1E52106B1B7B258E00CA7C10 /* SearchedBeaconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedBeaconCell.swift; sourceTree = "<group>"; };
+		1E57BD401B7B9565002ABE77 /* AntiLostBeaconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntiLostBeaconCell.swift; sourceTree = "<group>"; };
 		1E6EF3591B5E8FAD0026FD19 /* XBWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBWebViewController.swift; sourceTree = "<group>"; };
 		1E77573A1B5B9AB2004EF4D9 /* XBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E77573D1B5B9AB2004EF4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,7 +149,9 @@
 				1E7757411B5B9AB2004EF4D9 /* Main.storyboard */,
 				1E0637731B5CBB7C009E9063 /* XBeaconManager.swift */,
 				1E36B7921B78EFB90019AB7D /* AntiLostMapViewController.swift */,
+				1E57BD401B7B9565002ABE77 /* AntiLostBeaconCell.swift */,
 				1EF06E2E1B7A41C300924D01 /* BeaconSearchViewController.swift */,
+				1E52106B1B7B258E00CA7C10 /* SearchedBeaconCell.swift */,
 				1EF06E2B1B7A405C00924D01 /* BeaconSettingViewController.swift */,
 				1E4B154E1B5D492C009226D7 /* Utility.swift */,
 				1E4B15471B5D2ACF009226D7 /* ArrayDataSource.swift */,
@@ -397,10 +403,12 @@
 				1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */,
 				1E4B154D1B5D46F2009226D7 /* RegionViewController.swift in Sources */,
 				1E0637741B5CBB7C009E9063 /* XBeaconManager.swift in Sources */,
+				1E52106C1B7B258E00CA7C10 /* SearchedBeaconCell.swift in Sources */,
 				1E4B154F1B5D492C009226D7 /* Utility.swift in Sources */,
 				1EF06E2A1B7A3E7D00924D01 /* XBeacon.swift in Sources */,
 				1E77573E1B5B9AB2004EF4D9 /* AppDelegate.swift in Sources */,
 				1EF06E291B7A3E7D00924D01 /* XBeacon+CoreDataProperties.swift in Sources */,
+				1E57BD411B7B9565002ABE77 /* AntiLostBeaconCell.swift in Sources */,
 				1E36B7931B78EFB90019AB7D /* AntiLostMapViewController.swift in Sources */,
 				1E4B154B1B5D46E5009226D7 /* AntiLostViewController.swift in Sources */,
 				1E4B15461B5D25DF009226D7 /* XBTableViewController.swift in Sources */,

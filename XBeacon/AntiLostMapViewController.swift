@@ -28,12 +28,13 @@ class LostPin: NSObject, MKAnnotation {
     }
 }
 
-class AntiLostMapViewController: UIViewController,MKMapViewDelegate {
+class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var atlostSwitch: UISwitch!
     @IBOutlet weak var lostMapView: MKMapView!
     @IBOutlet weak var antiLostListTableView: UITableView!
     let regionRadius: CLLocationDistance = 1000
+    var frc:NSFetchedResultsController!
     
     var setRegionAnimateOnce = true
     
@@ -46,6 +47,37 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate {
         if let lostLocation = UserDefaults.objectForKey("LostLocation") as? CLLocation {
             centerMapOnLocation(lostLocation)
         }
+        antiLostListTableView.dataSource = self
+        antiLostListTableView.delegate = self
+        
+        let fetchRequest = XBeacon.MR_createFetchRequest()
+        fetchRequest.sortDescriptors =  [NSSortDescriptor]()
+        frc = XBeacon.MR_fetchController(fetchRequest, delegate: self, useFileCache: false, groupedBy: nil, inContext: NSManagedObjectContext.MR_defaultContext())
+        do {
+            try frc.performFetch()
+        }
+        catch let error as NSError {
+            print(error)
+        }
+
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return frc.fetchedObjects!.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AntiLostBeaconCell", forIndexPath: indexPath) as! AntiLostBeaconCell
+        if let xbeacon = frc.fetchedObjects![indexPath.row] as? XBeacon {
+            cell.textLabel?.text = xbeacon.name
+            print("\(xbeacon.name)")
+        }
+        return cell
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -77,18 +109,16 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate {
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func unwindToAntiLostMapViewController(segue:UIStoryboardSegue) {
     }
-    
     
     @IBAction func antiLostSwitch(sender: UISwitch) {
         UserDefaults.setBool(sender.on, forKey: "RegionState")
         if sender.on {
-            XBeaconManager.sharedManager.startMonitor()
+            //FIXME : MultiDevice
+//            XBeaconManager.sharedManager.startMonitor()
         }else{
-            XBeaconManager.sharedManager.stopMonitor()
+//            XBeaconManager.sharedManager.stopMonitor()
         }
     }
     

@@ -3,6 +3,7 @@
 
 target 'XBeacon' do
 pod "MagicalRecord"
+pod "ReactiveCocoa"
 end
 
 target 'XBeaconTests' do

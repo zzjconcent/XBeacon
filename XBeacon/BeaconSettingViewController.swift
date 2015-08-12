@@ -10,16 +10,38 @@ import UIKit
 
 class BeaconSettingViewController: UIViewController {
 
+    var beacon:CLBeacon!
+    
+    @IBOutlet weak var dataPickerView: UIPickerView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var shareBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func finishSetting(sender: UIBarButtonItem) {
+        let rawString = nameTextField.text!
+        let whitespace = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        let trimmed = rawString.stringByTrimmingCharactersInSet(whitespace)
+
+        if trimmed.isEmpty {
+            return
+        }
+        
+        let xbeacon = XBeacon.MR_createEntityInContext(NSManagedObjectContext.MR_defaultContext())
+        xbeacon.clregion = beacon
+        xbeacon.name = nameTextField.text
+        xbeacon.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+        performSegueWithIdentifier("finishSettingToUnwind", sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
 
     /*
