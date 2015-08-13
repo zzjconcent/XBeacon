@@ -22,10 +22,11 @@ class BeaconSearchViewController: UIViewController,UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "managerSearchingUpdate", name: "UpdateSearchingBeaconResults", object: nil)
-        XBeaconManager.sharedManager.startRanging()
+        let beaconRegion = CLBeaconRegion(proximityUUID: kUUID!, identifier: kIdentifier) 
+        XBeaconManager.sharedManager.startRanging(beaconRegion)
         setupTableView()
     }
-
+    
     func setupTableView() {
         
         let configCell:TableViewCellConfigureClosure = {
@@ -114,7 +115,8 @@ class BeaconSearchViewController: UIViewController,UITableViewDelegate {
     func filteredBeacons(beacons:[CLBeacon]) -> [CLBeacon] {
         var filteredBeacons = beacons
         var lookup = Set<String>()
-        for  i in 0..<beacons.count {
+        
+        for i in stride(from: beacons.count - 1, through: 0, by: -1) {
             let beacon = beacons[i]
             let id = "\(beacon.major)\(beacon.minor)\(beacon.proximityUUID)"
             if lookup.contains(id) {
@@ -123,6 +125,7 @@ class BeaconSearchViewController: UIViewController,UITableViewDelegate {
                 lookup.insert(id)
             }
         }
+        
         return filteredBeacons
     }
     
@@ -132,7 +135,7 @@ class BeaconSearchViewController: UIViewController,UITableViewDelegate {
         }
     }
     
-
+    
     deinit {
         print("SearchNewBeaconController deinit")
     }

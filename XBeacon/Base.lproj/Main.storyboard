@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1a3-WF-0y5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -225,45 +226,62 @@
                                 </constraints>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cf3-1K-WCP">
-                                <rect key="frame" x="20" y="111" width="560" height="213"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="20" y="72" width="560" height="252"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AntiLostBeaconCell" textLabel="rJf-fW-sew" style="IBUITableViewCellStyleDefault" id="JCJ-kb-ljJ" customClass="AntiLostBeaconCell" customModule="XBeacon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AntiLostBeaconCell" id="JCJ-kb-ljJ" customClass="AntiLostBeaconCell" customModule="XBeacon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JCJ-kb-ljJ" id="OGe-MW-D2o">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJf-fW-sew">
-                                                    <rect key="frame" x="15" y="0.0" width="530" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJV-od-Va7">
+                                                    <rect key="frame" x="8" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="boc-U7-c8d">
+                                                    <rect key="frame" x="464" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="antiLost:" destination="JCJ-kb-ljJ" eventType="valueChanged" id="UrX-K3-jXj"/>
+                                                    </connections>
+                                                </switch>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BXx-QL-WLG">
+                                                    <rect key="frame" x="521" y="7" width="31" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="BXx-QL-WLG" secondAttribute="height" multiplier="1:1" id="j4E-S5-ffD"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BXx-QL-WLG" firstAttribute="centerY" secondItem="OGe-MW-D2o" secondAttribute="centerY" id="JEi-6z-jue"/>
+                                                <constraint firstItem="boc-U7-c8d" firstAttribute="centerY" secondItem="OGe-MW-D2o" secondAttribute="centerY" id="L6d-ln-frT"/>
+                                                <constraint firstItem="BXx-QL-WLG" firstAttribute="leading" secondItem="boc-U7-c8d" secondAttribute="trailing" constant="8" id="ROP-mg-P4Q"/>
+                                                <constraint firstItem="TJV-od-Va7" firstAttribute="leading" secondItem="OGe-MW-D2o" secondAttribute="leadingMargin" id="bhw-QQ-hzR"/>
+                                                <constraint firstItem="TJV-od-Va7" firstAttribute="centerY" secondItem="OGe-MW-D2o" secondAttribute="centerY" id="j3s-K3-TZo"/>
+                                                <constraint firstItem="BXx-QL-WLG" firstAttribute="trailing" secondItem="OGe-MW-D2o" secondAttribute="trailingMargin" id="m6U-Mz-SqM"/>
+                                                <constraint firstItem="BXx-QL-WLG" firstAttribute="height" secondItem="boc-U7-c8d" secondAttribute="height" id="x0m-c0-qEr"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="antiLostSwitch" destination="boc-U7-c8d" id="lzA-Eu-nUm"/>
+                                            <outlet property="nameLbl" destination="TJV-od-Va7" id="2Vs-Tq-JLf"/>
+                                            <outlet property="stateImgView" destination="BXx-QL-WLG" id="cUH-Mg-CFY"/>
                                             <segue destination="RHo-Hi-Fmp" kind="show" id="3vj-1T-u0s"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vSP-eb-hp5">
-                                <rect key="frame" x="276" y="72" width="51" height="31"/>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cf3-1K-WCP" firstAttribute="top" secondItem="Pq4-0q-Do0" secondAttribute="bottom" constant="8" id="F6l-oi-Zc2"/>
                             <constraint firstItem="cf3-1K-WCP" firstAttribute="trailing" secondItem="uDG-Bt-Ph4" secondAttribute="trailingMargin" id="KWA-Gz-x9F"/>
                             <constraint firstItem="cf3-1K-WCP" firstAttribute="leading" secondItem="uDG-Bt-Ph4" secondAttribute="leadingMargin" id="Nh9-Vf-jVO"/>
                             <constraint firstItem="Ds1-pY-fqb" firstAttribute="leading" secondItem="uDG-Bt-Ph4" secondAttribute="leadingMargin" id="RUY-td-vvY"/>
                             <constraint firstItem="702-3P-vMY" firstAttribute="top" secondItem="Ds1-pY-fqb" secondAttribute="bottom" constant="8" id="d7B-Ra-dLQ"/>
                             <constraint firstItem="Ds1-pY-fqb" firstAttribute="trailing" secondItem="uDG-Bt-Ph4" secondAttribute="trailingMargin" id="iAS-jF-Fa6"/>
-                            <constraint firstItem="cf3-1K-WCP" firstAttribute="top" secondItem="vSP-eb-hp5" secondAttribute="bottom" constant="8" id="iRt-J7-ChQ"/>
-                            <constraint firstItem="vSP-eb-hp5" firstAttribute="centerX" secondItem="uDG-Bt-Ph4" secondAttribute="centerX" id="oCf-rE-NnE"/>
-                            <constraint firstItem="vSP-eb-hp5" firstAttribute="top" secondItem="Pq4-0q-Do0" secondAttribute="bottom" constant="8" id="uFi-O7-Tfr"/>
                             <constraint firstItem="Ds1-pY-fqb" firstAttribute="top" secondItem="cf3-1K-WCP" secondAttribute="bottom" constant="8" id="vdM-cF-RuE"/>
                         </constraints>
                     </view>
@@ -277,7 +295,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="antiLostListTableView" destination="cf3-1K-WCP" id="kfu-ye-IQp"/>
-                        <outlet property="atlostSwitch" destination="vSP-eb-hp5" id="l0P-hS-j9h"/>
                         <outlet property="lostMapView" destination="Ds1-pY-fqb" id="nHK-Xu-rhx"/>
                     </connections>
                 </viewController>

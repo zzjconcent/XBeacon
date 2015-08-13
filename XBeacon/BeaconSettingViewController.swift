@@ -25,14 +25,23 @@ class BeaconSettingViewController: UIViewController {
         let rawString = nameTextField.text!
         let whitespace = NSCharacterSet.whitespaceAndNewlineCharacterSet()
         let trimmed = rawString.stringByTrimmingCharactersInSet(whitespace)
-
-        if trimmed.isEmpty {
+        var sameName = false
+        if let xBeacons = XBeacon.MR_findAll() as? [XBeacon] {
+            for xBeacon in xBeacons {
+                if rawString == xBeacon.name! {
+                    sameName = true
+                    break
+                }
+            }
+        }
+        if trimmed.isEmpty && sameName {
             return
         }
         
         let xbeacon = XBeacon.MR_createEntityInContext(NSManagedObjectContext.MR_defaultContext())
-        xbeacon.clregion = beacon
+        xbeacon.beacon = beacon
         xbeacon.name = nameTextField.text
+        xbeacon.antiLost = false
         xbeacon.managedObjectContext!.MR_saveToPersistentStoreAndWait()
         performSegueWithIdentifier("finishSettingToUnwind", sender: self)
     }
