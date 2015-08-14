@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1a3-WF-0y5">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
@@ -287,11 +289,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="9T1-O8-dba">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4JK-sR-2hR">
-                            <connections>
-                                <segue destination="c0B-Ks-5iE" kind="show" id="x47-DE-K5e"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="4JK-sR-2hR">
+                                <connections>
+                                    <segue destination="c0B-Ks-5iE" kind="show" id="x47-DE-K5e"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="search" id="iyR-Ev-m0m">
+                                <connections>
+                                    <segue destination="Ac9-Ey-afh" kind="show" id="qdw-W1-3lU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="antiLostListTableView" destination="cf3-1K-WCP" id="kfu-ye-IQp"/>
@@ -398,10 +407,6 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Bs-7j-XCy">
                                 <rect key="frame" x="62" y="192" width="518" height="216"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwO-5C-Qcq">
-                                <rect key="frame" x="285" y="550" width="30" height="30"/>
-                                <state key="normal" title="分享"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PgJ-by-3Pw">
                                 <rect key="frame" x="250" y="94" width="100" height="30"/>
                                 <constraints>
@@ -410,19 +415,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jys-xg-1ix">
+                                <rect key="frame" x="276" y="549" width="51" height="31"/>
+                                <connections>
+                                    <action selector="sharingStateChange:" destination="RHo-Hi-Fmp" eventType="valueChanged" id="hEK-4F-CfH"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boardcast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc5-gC-I9Z">
+                                <rect key="frame" x="182" y="554" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PgJ-by-3Pw" firstAttribute="leading" secondItem="Cbz-MJ-ISK" secondAttribute="trailing" constant="8" id="16x-YQ-ldg"/>
-                            <constraint firstItem="jwO-5C-Qcq" firstAttribute="centerX" secondItem="hNq-4f-HTe" secondAttribute="centerX" id="9Mi-Ra-juY"/>
+                            <constraint firstItem="jys-xg-1ix" firstAttribute="centerX" secondItem="hNq-4f-HTe" secondAttribute="centerX" id="Bwq-4T-2ef"/>
+                            <constraint firstItem="RbG-du-fXQ" firstAttribute="top" secondItem="jys-xg-1ix" secondAttribute="bottom" constant="20" id="MEL-go-5aM"/>
                             <constraint firstItem="PgJ-by-3Pw" firstAttribute="top" secondItem="Jer-Sf-1k7" secondAttribute="bottom" constant="30" id="MhQ-4I-EvT"/>
                             <constraint firstItem="mb0-t9-Gvs" firstAttribute="centerY" secondItem="hNq-4f-HTe" secondAttribute="centerY" id="OCA-yL-vvU"/>
-                            <constraint firstItem="RbG-du-fXQ" firstAttribute="top" secondItem="jwO-5C-Qcq" secondAttribute="bottom" constant="20" id="Q03-sH-Ksv"/>
                             <constraint firstItem="4Bs-7j-XCy" firstAttribute="centerY" secondItem="hNq-4f-HTe" secondAttribute="centerY" id="Rv0-JT-ksu"/>
                             <constraint firstItem="mb0-t9-Gvs" firstAttribute="leading" secondItem="hNq-4f-HTe" secondAttribute="leadingMargin" id="XxM-v7-FDl"/>
                             <constraint firstItem="Cbz-MJ-ISK" firstAttribute="centerY" secondItem="PgJ-by-3Pw" secondAttribute="centerY" id="bhY-4n-q3W"/>
                             <constraint firstItem="4Bs-7j-XCy" firstAttribute="trailing" secondItem="hNq-4f-HTe" secondAttribute="trailingMargin" id="fbm-G2-doM"/>
+                            <constraint firstItem="jys-xg-1ix" firstAttribute="leading" secondItem="Jc5-gC-I9Z" secondAttribute="trailing" constant="16" id="iuj-8o-EN0"/>
                             <constraint firstItem="4Bs-7j-XCy" firstAttribute="leading" secondItem="mb0-t9-Gvs" secondAttribute="trailing" constant="8" id="kDX-9g-hG3"/>
+                            <constraint firstItem="Jc5-gC-I9Z" firstAttribute="centerY" secondItem="jys-xg-1ix" secondAttribute="centerY" id="suG-rB-IcZ"/>
                             <constraint firstItem="PgJ-by-3Pw" firstAttribute="centerX" secondItem="hNq-4f-HTe" secondAttribute="centerX" id="vRi-Ag-EsY"/>
                         </constraints>
                     </view>
@@ -436,13 +455,55 @@
                     <connections>
                         <outlet property="dataPickerView" destination="4Bs-7j-XCy" id="ASm-Bh-O57"/>
                         <outlet property="nameTextField" destination="PgJ-by-3Pw" id="d4v-Ij-U5W"/>
-                        <outlet property="shareBtn" destination="jwO-5C-Qcq" id="wID-CT-r8H"/>
+                        <outlet property="sharingSwitch" destination="jys-xg-1ix" id="JaL-0v-RrM"/>
                         <segue destination="ElK-D2-9k0" kind="unwind" identifier="finishSettingToUnwind" unwindAction="unwindToAntiLostMapViewController:" id="aTU-Zd-ybN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JpL-hO-8Xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1694" y="2636"/>
+        </scene>
+        <!--Help Search View Controller-->
+        <scene sceneID="lev-vZ-hhN">
+            <objects>
+                <viewController id="Ac9-Ey-afh" customClass="HelpSearchViewController" customModule="XBeacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vl9-lh-OyQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="7q3-5e-wmC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UhZ-kk-cKp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brv-mZ-WTr">
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addHelpSearchBeacon:" destination="Ac9-Ey-afh" eventType="touchUpInside" id="vvV-w0-upU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxb-5I-2aR">
+                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cxb-5I-2aR" firstAttribute="centerY" secondItem="UhZ-kk-cKp" secondAttribute="centerY" id="LRd-UW-GMK"/>
+                            <constraint firstItem="Brv-mZ-WTr" firstAttribute="centerX" secondItem="UhZ-kk-cKp" secondAttribute="centerX" id="R3E-fT-5DK"/>
+                            <constraint firstItem="7q3-5e-wmC" firstAttribute="top" secondItem="Brv-mZ-WTr" secondAttribute="bottom" constant="20" id="TuV-3p-Nfj"/>
+                            <constraint firstItem="cxb-5I-2aR" firstAttribute="centerX" secondItem="UhZ-kk-cKp" secondAttribute="centerX" id="mZQ-4M-3UT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detectedBeaconLbl" destination="cxb-5I-2aR" id="bCG-NV-XJC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5HT-6V-xD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1694" y="3320"/>
         </scene>
         <!--Beacon Region Advertising View Controller-->
         <scene sceneID="WXa-n8-Wg6">
@@ -544,6 +605,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPP-nH-orv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="164" y="2636"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qMi-eJ-Udf">
+            <objects>
+                <viewController id="Jt2-eh-mBo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ooh-45-cBJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Ur-fa-p7e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UzW-EV-kLn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Muo-sw-OYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

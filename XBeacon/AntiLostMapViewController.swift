@@ -63,11 +63,11 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
             print(error)
         }
         
-        markAntiLostLocation()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "markAntiLostLocation", name: "BeaconLost", object: nil)
+//        pinBeaconLostLocation()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pinBeaconLostLocation", name: "BeaconLost", object: nil)
     }
     
-    func markAntiLostLocation() {
+    func pinBeaconLostLocation() {
         let xbeacons = XBeacon.MR_findAll() as! [XBeacon]
         for xbeacon in xbeacons {
             if xbeacon.location != nil {
@@ -78,6 +78,20 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
                         if lp.beaconName == xbeacon.name! {
                             self.lostMapView.removeAnnotation(lp)
                         }
+                    }
+                }
+            }
+        }
+    }
+    
+    func markAntiLostLocation(xbeacon:XBeacon) {
+        if xbeacon.location != nil {
+            centerMapOnLocation(xbeacon.location!, beaconName: xbeacon.name!)
+        }else{
+            for an in self.lostMapView.annotations {
+                if let lp = an as? LostPin {
+                    if lp.beaconName == xbeacon.name! {
+                        self.lostMapView.removeAnnotation(lp)
                     }
                 }
             }
@@ -105,6 +119,7 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
                 let beaconRegion = CLBeaconRegion(proximityUUID: beacon.proximityUUID, major: major, minor: minor, identifier: xBeacon.name!)
                 XBeaconManager.sharedManager.startRanging(beaconRegion)
             }
+            markAntiLostLocation(xBeacon)
             cell.delegate = self
         }
         return cell
@@ -120,6 +135,16 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
                     let beaconRegion = CLBeaconRegion(proximityUUID: beacon.proximityUUID, major: major, minor: minor, identifier: deleteBeacon.name!)
                     XBeaconManager.sharedManager.stopMonitor(beaconRegion)
                     XBeaconManager.sharedManager.stopRanging(beaconRegion)
+                    if deleteBeacon.location != nil {
+                        for an in self.lostMapView.annotations {
+                            if let lp = an as? LostPin {
+                                if lp.beaconName == deleteBeacon.name! {
+                                    self.lostMapView.removeAnnotation(lp)
+                                    break
+                                }
+                            }
+                        }
+                    }
                 }
                 deleteBeacon.MR_deleteEntity()
                 deleteBeacon.managedObjectContext!.MR_saveToPersistentStoreAndWait()
@@ -135,7 +160,7 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
         switch type {
         case .Insert:antiLostListTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         case .Delete:antiLostListTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Update:antiLostListTableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+//        case .Update:antiLostListTableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         default:break
         }
     }

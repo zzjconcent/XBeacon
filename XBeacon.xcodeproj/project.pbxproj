@@ -26,6 +26,7 @@
 		1E7757481B5B9AB2004EF4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7757461B5B9AB2004EF4D9 /* LaunchScreen.storyboard */; };
 		1E7757531B5B9AB2004EF4D9 /* XBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7757521B5B9AB2004EF4D9 /* XBeaconTests.swift */; };
 		1E77575E1B5B9AB3004EF4D9 /* XBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */; };
+		1EC384C91B7DCAA700ECE013 /* HelpSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC384C81B7DCAA700ECE013 /* HelpSearchViewController.swift */; };
 		1ECFDB891B7102CD004F07BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECFDB881B7102CD004F07BC /* MapKit.framework */; };
 		1EE861311B7D972C00A0F1CE /* CLLocation+Sino.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE861301B7D972C00A0F1CE /* CLLocation+Sino.m */; };
 		1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */; };
@@ -79,6 +80,7 @@
 		1E7757591B5B9AB3004EF4D9 /* XBeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XBeaconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBeaconUITests.swift; sourceTree = "<group>"; };
 		1E77575F1B5B9AB3004EF4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EC384C81B7DCAA700ECE013 /* HelpSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpSearchViewController.swift; sourceTree = "<group>"; };
 		1ECFDB881B7102CD004F07BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1EE8612F1B7D972C00A0F1CE /* CLLocation+Sino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Sino.h"; sourceTree = "<group>"; };
 		1EE861301B7D972C00A0F1CE /* CLLocation+Sino.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Sino.m"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				1EF06E2E1B7A41C300924D01 /* BeaconSearchViewController.swift */,
 				1E52106B1B7B258E00CA7C10 /* SearchedBeaconCell.swift */,
 				1EF06E2B1B7A405C00924D01 /* BeaconSettingViewController.swift */,
+				1EC384C81B7DCAA700ECE013 /* HelpSearchViewController.swift */,
 				1E4B154E1B5D492C009226D7 /* Utility.swift */,
 				1E4B15471B5D2ACF009226D7 /* ArrayDataSource.swift */,
 				1E7757441B5B9AB2004EF4D9 /* Assets.xcassets */,
@@ -308,6 +311,7 @@
 				TargetAttributes = {
 					1E7757391B5B9AB2004EF4D9 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = J79E2R8FJ2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -416,6 +420,7 @@
 				1EF06E2C1B7A405C00924D01 /* BeaconSettingViewController.swift in Sources */,
 				1EE861311B7D972C00A0F1CE /* CLLocation+Sino.m in Sources */,
 				1EF06E211B7A3D1900924D01 /* XBeacon.xcdatamodeld in Sources */,
+				1EC384C91B7DCAA700ECE013 /* HelpSearchViewController.swift in Sources */,
 				1E7757401B5B9AB2004EF4D9 /* ViewController.swift in Sources */,
 				1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */,
 				1E4B154D1B5D46F2009226D7 /* RegionViewController.swift in Sources */,
@@ -571,11 +576,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XBeacon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.XBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "XBeacon/XBeacon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -587,11 +595,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XBeacon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.XBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "XBeacon/XBeacon-Bridging-Header.h";
 			};
 			name = Release;
