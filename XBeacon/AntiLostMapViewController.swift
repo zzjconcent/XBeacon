@@ -29,7 +29,7 @@ class LostPin: NSObject, MKAnnotation {
     }
 }
 
-class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate {
+class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate,AntiLostBeaconCellDelegate {
     
 //    @IBOutlet weak var atlostSwitch: UISwitch!
     @IBOutlet weak var lostMapView: MKMapView!
@@ -105,8 +105,26 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
                 let beaconRegion = CLBeaconRegion(proximityUUID: beacon.proximityUUID, major: major, minor: minor, identifier: xBeacon.name!)
                 XBeaconManager.sharedManager.startRanging(beaconRegion)
             }
+            cell.delegate = self
         }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            if let deleteBeacon = frc.fetchedObjects![indexPath.row] as? XBeacon {
+                if deleteBeacon.antiLost!.boolValue {
+                    let beacon = deleteBeacon.beacon!
+                    let major = CLBeaconMajorValue(beacon.major.integerValue)
+                    let minor = CLBeaconMinorValue(beacon.minor.integerValue)
+                    let beaconRegion = CLBeaconRegion(proximityUUID: beacon.proximityUUID, major: major, minor: minor, identifier: deleteBeacon.name!)
+                    XBeaconManager.sharedManager.stopMonitor(beaconRegion)
+                    XBeaconManager.sharedManager.stopRanging(beaconRegion)
+                }
+                deleteBeacon.MR_deleteEntity()
+                deleteBeacon.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+            }
+        }
     }
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
@@ -117,12 +135,53 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
         switch type {
         case .Insert:antiLostListTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         case .Delete:antiLostListTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        case .Update:antiLostListTableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         default:break
         }
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         antiLostListTableView.endUpdates()
+    }
+    
+    func didUpdateCellAntiLostState(on: Bool, xBeacon: XBeacon) {
+        if on {
+            CLGeocoder().reverseGeocodeLocation(xBeacon.location!, completionHandler:
+                {(placemarks, error) in
+                    if (error != nil) {
+                        print("reverse geodcode fail: \(error!.localizedDescription)")
+                        return
+                    }
+                    let beaconName = xBeacon.name!
+                    let pm = placemarks!
+                    if pm.count > 0 {
+                        let title = "\(beaconName)" + "\n" + "\(pm[0].subLocality)"
+                        let subTitle = "\(pm[0].thoroughfare)\(pm[0].subThoroughfare)"
+                        let lostPin = LostPin(title: title, subTitle:subTitle ,coordinate: pm[0].location.coordinate)
+                        lostPin.beaconName = beaconName
+                        self.lostMapView.addAnnotation(lostPin)
+                    }
+            })
+        }else{
+            for an in self.lostMapView.annotations {
+                if let lp = an as? LostPin {
+                    if lp.beaconName == xBeacon.name {
+                        self.lostMapView.removeAnnotation(lp)
+                        break
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "BeaconSetting" {
+            if let vc = segue.destinationViewController as? BeaconSettingViewController {
+                let cell = sender as! AntiLostBeaconCell
+                vc.xBeacon = cell.xBeacon
+            }
+        }
     }
     
     func centerMapOnLocation(location: CLLocation, beaconName:String) {

@@ -11,6 +11,7 @@ import UIKit
 class BeaconSettingViewController: UIViewController {
 
     var beacon:CLBeacon!
+    var xBeacon:XBeacon?
     
     @IBOutlet weak var dataPickerView: UIPickerView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -35,6 +36,13 @@ class BeaconSettingViewController: UIViewController {
             }
         }
         if trimmed.isEmpty && sameName {
+            return
+        }
+        
+        if xBeacon != nil {
+            xBeacon!.name = nameTextField.text
+            xBeacon!.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+            performSegueWithIdentifier("finishSettingToUnwind", sender: self)
             return
         }
         

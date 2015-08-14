@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol AntiLostBeaconCellDelegate {
+    func didUpdateCellAntiLostState(on:Bool,xBeacon:XBeacon)
+}
+
 class AntiLostBeaconCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var antiLostSwitch: UISwitch!
     @IBOutlet weak var stateImgView: UIImageView!
+    
+    var delegate:AntiLostBeaconCellDelegate?
     var beaconRegion:CLBeaconRegion!
     var xBeacon:XBeacon!{
         didSet{
@@ -60,6 +66,9 @@ class AntiLostBeaconCell: UITableViewCell {
             stateImgView.backgroundColor = UIColor.clearColor()
         }
         xBeacon.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+        if xBeacon.location != nil {
+            delegate?.didUpdateCellAntiLostState(sender.on, xBeacon: xBeacon)
+        }
     }
     
     override func awakeFromNib() {

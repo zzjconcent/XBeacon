@@ -4,3 +4,4 @@
 
 #import <MagicalRecord/MagicalRecord.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "CLLocation+Sino.h"

@@ -27,6 +27,7 @@
 		1E7757531B5B9AB2004EF4D9 /* XBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7757521B5B9AB2004EF4D9 /* XBeaconTests.swift */; };
 		1E77575E1B5B9AB3004EF4D9 /* XBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */; };
 		1ECFDB891B7102CD004F07BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECFDB881B7102CD004F07BC /* MapKit.framework */; };
+		1EE861311B7D972C00A0F1CE /* CLLocation+Sino.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE861301B7D972C00A0F1CE /* CLLocation+Sino.m */; };
 		1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */; };
 		1EF06E211B7A3D1900924D01 /* XBeacon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EF06E1F1B7A3D1900924D01 /* XBeacon.xcdatamodeld */; };
 		1EF06E291B7A3E7D00924D01 /* XBeacon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF06E271B7A3E7D00924D01 /* XBeacon+CoreDataProperties.swift */; };
@@ -79,6 +80,8 @@
 		1E77575D1B5B9AB3004EF4D9 /* XBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBeaconUITests.swift; sourceTree = "<group>"; };
 		1E77575F1B5B9AB3004EF4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ECFDB881B7102CD004F07BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1EE8612F1B7D972C00A0F1CE /* CLLocation+Sino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Sino.h"; sourceTree = "<group>"; };
+		1EE861301B7D972C00A0F1CE /* CLLocation+Sino.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Sino.m"; sourceTree = "<group>"; };
 		1EE9996F1B5FCFFF00A48F6B /* RangingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangingViewController.swift; sourceTree = "<group>"; };
 		1EF06E1B1B7A3BDC00924D01 /* XBeacon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XBeacon-Bridging-Header.h"; sourceTree = "<group>"; };
 		1EF06E201B7A3D1900924D01 /* XBeacon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XBeacon.xcdatamodel; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 				1E7757441B5B9AB2004EF4D9 /* Assets.xcassets */,
 				1E7757461B5B9AB2004EF4D9 /* LaunchScreen.storyboard */,
 				1E7757491B5B9AB2004EF4D9 /* Info.plist */,
+				1EE8612E1B7D972C00A0F1CE /* Catagory */,
 				1EF06E221B7A3D2300924D01 /* CoreData */,
 				1EF06E1B1B7A3BDC00924D01 /* XBeacon-Bridging-Header.h */,
 			);
@@ -183,6 +187,15 @@
 				1E77575F1B5B9AB3004EF4D9 /* Info.plist */,
 			);
 			path = XBeaconUITests;
+			sourceTree = "<group>";
+		};
+		1EE8612E1B7D972C00A0F1CE /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				1EE8612F1B7D972C00A0F1CE /* CLLocation+Sino.h */,
+				1EE861301B7D972C00A0F1CE /* CLLocation+Sino.m */,
+			);
+			path = Catagory;
 			sourceTree = "<group>";
 		};
 		1EF06E221B7A3D2300924D01 /* CoreData */ = {
@@ -401,6 +414,7 @@
 				1E4B15481B5D2ACF009226D7 /* ArrayDataSource.swift in Sources */,
 				1E6EF35A1B5E8FAD0026FD19 /* XBWebViewController.swift in Sources */,
 				1EF06E2C1B7A405C00924D01 /* BeaconSettingViewController.swift in Sources */,
+				1EE861311B7D972C00A0F1CE /* CLLocation+Sino.m in Sources */,
 				1EF06E211B7A3D1900924D01 /* XBeacon.xcdatamodeld in Sources */,
 				1E7757401B5B9AB2004EF4D9 /* ViewController.swift in Sources */,
 				1EE999701B5FCFFF00A48F6B /* RangingViewController.swift in Sources */,

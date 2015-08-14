@@ -50,7 +50,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
         for xbeacon in xbeacons {
             if let beacon = xbeacon as? XBeacon {
                 if lostBeacons.contains(beacon.name!) && beacon.location == nil {
-                    beacon.location = locations.first!
+                    beacon.location = locations.first!.locationMarsFromEarth()
                     beacon.managedObjectContext!.MR_saveToPersistentStoreAndWait()
                 }
             }
@@ -67,16 +67,12 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     }
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-//        let userInfo = ["lost":false]
-//        NSNotificationCenter.defaultCenter().postNotificationName(region.identifier, object: nil, userInfo: userInfo)
 //        sendLocalNotificationForBeaconReagion(region, detailStr: "Enter Region")
         inRegin = true
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-//        let userInfo = ["lost":true]
-//        NSNotificationCenter.defaultCenter().postNotificationName(region.identifier, object: nil, userInfo: userInfo)
-//        sendLocalNotificationForBeaconReagion(region, detailStr: "Exit Region")
+        sendLocalNotificationForBeaconReagion(region, detailStr: "\(region.identifier) Lost")
         lostBeacons.insert(region.identifier)
         xBeaconManager.locationManager.startUpdatingLocation()
         inRegin = false
@@ -219,7 +215,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
         localNotification.alertBody = detailStr
         localNotification.alertAction = "View Details"
         localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.category = "displayCategory"
+//        localNotification.category = "displayCategory"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
