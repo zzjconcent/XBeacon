@@ -141,8 +141,8 @@ class BeaconSettingViewController: UIViewController,CBPeripheralManagerDelegate 
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
         view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     @IBAction func sharingStateChange(sender: UISwitch) {
