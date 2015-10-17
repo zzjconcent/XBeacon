@@ -26,10 +26,11 @@ class RangingViewController: UIViewController {
     
     @IBAction func rangingSwitch(sender: UISwitch) {
 //        UserDefaults.setBool(sender.on, forKey: "RangingState")
+        let beaconRegion = CLBeaconRegion(proximityUUID: kUUID!, identifier: kIdentifier)
         if sender.on {
-            XBeaconManager.sharedManager.startRanging()
+            XBeaconManager.sharedManager.startRanging(beaconRegion)
         }else{
-            XBeaconManager.sharedManager.stopRanging()
+            XBeaconManager.sharedManager.stopRanging(beaconRegion)
         }
     }
 

@@ -2,7 +2,7 @@
 //  XBeacon+CoreDataProperties.swift
 //  XBeacon
 //
-//  Created by zzj on 8/11/15.
+//  Created by zzj on 8/13/15.
 //  Copyright © 2015 zzj. All rights reserved.
 //
 //  Delete this file and regenerate it using "Create NSManagedObject Subclass…"
@@ -11,11 +11,12 @@
 
 import Foundation
 import CoreData
-import CoreLocation
 
 extension XBeacon {
 
+    @NSManaged var beacon: CLBeacon?
     @NSManaged var name: String?
-    @NSManaged var clregion: CLBeaconRegion?
+    @NSManaged var location: CLLocation?
+    @NSManaged var antiLost: NSNumber?
 
 }
