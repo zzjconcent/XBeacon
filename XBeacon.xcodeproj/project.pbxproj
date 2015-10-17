@@ -253,6 +253,7 @@
 				1E7757371B5B9AB2004EF4D9 /* Frameworks */,
 				1E7757381B5B9AB2004EF4D9 /* Resources */,
 				16F449141250AFD57AAA0550 /* Copy Pods Resources */,
+				40BD830D7DEB5C0C12F9BD2B /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,6 +390,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XBeacon/Pods-XBeacon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40BD830D7DEB5C0C12F9BD2B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XBeacon/Pods-XBeacon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7968454834A4050311F76DD1 /* Check Pods Manifest.lock */ = {
@@ -579,7 +595,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XBeacon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.XBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -598,7 +614,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XBeacon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.XBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";

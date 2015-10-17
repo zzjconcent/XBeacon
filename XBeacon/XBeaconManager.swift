@@ -91,7 +91,7 @@ class XBeaconManager: NSObject,CLLocationManagerDelegate,CBPeripheralManagerDele
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         var newBeacons = beacons
         if let addedBeacons = XBeacon.MR_findAll() as? [CLBeacon] {
-            for i in stride(from: newBeacons.count - 1, through: 0, by: -1) {
+            for i in (newBeacons.count - 1).stride(through: 0, by: -1) {
                 var alreadyExists = false
                 let newBeacon = newBeacons[i]
                 for addedBeacon in addedBeacons {

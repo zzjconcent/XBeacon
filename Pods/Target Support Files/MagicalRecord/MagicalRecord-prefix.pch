@@ -2,6 +2,5 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import "Pods-XBeacon-environment.h"
 #import <CoreData/CoreData.h>
 #import <MagicalRecord/MagicalRecord.h>

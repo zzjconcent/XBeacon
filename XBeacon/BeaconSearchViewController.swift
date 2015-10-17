@@ -116,7 +116,7 @@ class BeaconSearchViewController: UIViewController,UITableViewDelegate {
         var filteredBeacons = beacons
         var lookup = Set<String>()
         
-        for i in stride(from: beacons.count - 1, through: 0, by: -1) {
+        for i in (beacons.count - 1).stride(through: 0, by: -1){
             let beacon = beacons[i]
             let id = "\(beacon.major)\(beacon.minor)\(beacon.proximityUUID)"
             if lookup.contains(id) {

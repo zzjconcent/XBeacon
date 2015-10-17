@@ -156,13 +156,14 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
         antiLostListTableView.beginUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:antiLostListTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         case .Delete:antiLostListTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-//        case .Update:antiLostListTableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            //        case .Update:antiLostListTableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         default:break
         }
+
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
@@ -182,7 +183,7 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
                     if pm.count > 0 {
                         let title = "\(beaconName)" + "\n" + "\(pm[0].subLocality)"
                         let subTitle = "\(pm[0].thoroughfare)\(pm[0].subThoroughfare)"
-                        let lostPin = LostPin(title: title, subTitle:subTitle ,coordinate: pm[0].location.coordinate)
+                        let lostPin = LostPin(title: title, subTitle:subTitle ,coordinate: pm[0].location!.coordinate)
                         lostPin.beaconName = beaconName
                         self.lostMapView.addAnnotation(lostPin)
                     }
@@ -230,7 +231,7 @@ class AntiLostMapViewController: UIViewController,MKMapViewDelegate,UITableViewD
                 if pm.count > 0 {
                     let title = "\(beaconName)" + "\n" + "\(pm[0].subLocality)"
                     let subTitle = "\(pm[0].thoroughfare)\(pm[0].subThoroughfare)"
-                    let lostPin = LostPin(title: title, subTitle:subTitle ,coordinate: pm[0].location.coordinate)
+                    let lostPin = LostPin(title: title, subTitle:subTitle ,coordinate: pm[0].location!.coordinate)
                     lostPin.beaconName = beaconName
                     for an in self.lostMapView.annotations {
                         if let lp = an as? LostPin {
