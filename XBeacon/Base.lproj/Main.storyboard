@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1a3-WF-0y5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1a3-WF-0y5">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -427,17 +427,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="铃声" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb0-t9-Gvs">
-                                <rect key="frame" x="20" y="290" width="34" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Bs-7j-XCy">
-                                <rect key="frame" x="62" y="192" width="518" height="216"/>
-                                <animations/>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PgJ-by-3Pw">
                                 <rect key="frame" x="250" y="94" width="100" height="30"/>
                                 <animations/>
@@ -469,13 +458,8 @@
                             <constraint firstItem="jys-xg-1ix" firstAttribute="centerX" secondItem="hNq-4f-HTe" secondAttribute="centerX" id="Bwq-4T-2ef"/>
                             <constraint firstItem="RbG-du-fXQ" firstAttribute="top" secondItem="jys-xg-1ix" secondAttribute="bottom" constant="20" id="MEL-go-5aM"/>
                             <constraint firstItem="PgJ-by-3Pw" firstAttribute="top" secondItem="Jer-Sf-1k7" secondAttribute="bottom" constant="30" id="MhQ-4I-EvT"/>
-                            <constraint firstItem="mb0-t9-Gvs" firstAttribute="centerY" secondItem="hNq-4f-HTe" secondAttribute="centerY" id="OCA-yL-vvU"/>
-                            <constraint firstItem="4Bs-7j-XCy" firstAttribute="centerY" secondItem="hNq-4f-HTe" secondAttribute="centerY" id="Rv0-JT-ksu"/>
-                            <constraint firstItem="mb0-t9-Gvs" firstAttribute="leading" secondItem="hNq-4f-HTe" secondAttribute="leadingMargin" id="XxM-v7-FDl"/>
                             <constraint firstItem="Cbz-MJ-ISK" firstAttribute="centerY" secondItem="PgJ-by-3Pw" secondAttribute="centerY" id="bhY-4n-q3W"/>
-                            <constraint firstItem="4Bs-7j-XCy" firstAttribute="trailing" secondItem="hNq-4f-HTe" secondAttribute="trailingMargin" id="fbm-G2-doM"/>
                             <constraint firstItem="jys-xg-1ix" firstAttribute="leading" secondItem="Jc5-gC-I9Z" secondAttribute="trailing" constant="16" id="iuj-8o-EN0"/>
-                            <constraint firstItem="4Bs-7j-XCy" firstAttribute="leading" secondItem="mb0-t9-Gvs" secondAttribute="trailing" constant="8" id="kDX-9g-hG3"/>
                             <constraint firstItem="Jc5-gC-I9Z" firstAttribute="centerY" secondItem="jys-xg-1ix" secondAttribute="centerY" id="suG-rB-IcZ"/>
                             <constraint firstItem="PgJ-by-3Pw" firstAttribute="centerX" secondItem="hNq-4f-HTe" secondAttribute="centerX" id="vRi-Ag-EsY"/>
                         </constraints>
@@ -488,7 +472,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dataPickerView" destination="4Bs-7j-XCy" id="ASm-Bh-O57"/>
                         <outlet property="nameTextField" destination="PgJ-by-3Pw" id="d4v-Ij-U5W"/>
                         <outlet property="sharingSwitch" destination="jys-xg-1ix" id="JaL-0v-RrM"/>
                         <segue destination="ElK-D2-9k0" kind="unwind" identifier="finishSettingToUnwind" unwindAction="unwindToAntiLostMapViewController:" id="aTU-Zd-ybN"/>
